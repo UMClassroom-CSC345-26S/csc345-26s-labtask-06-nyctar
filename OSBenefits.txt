@@ -1,0 +1,21 @@
+tff(operating_system_type, type, operating_system: $tType).
+tff(origin_type, type, origin: $tType).
+tff(computer_type, type, computer: $tType).
+tff(linux_decl, type, linux: operating_system).
+tff(windows_decl, type, windows: operating_system).
+tff(osx_decl, type, osx: operating_system).
+tff(os_different, axiom, linux != windows & linux != osx & windows != osx).
+tff(unix_decl, type, unix: origin).
+tff(dos_decl, type, dos: origin).
+tff(origin_different, axiom, unix != dos).
+tff(origin_decl, type, origin_of: operating_system > origin).
+tff(linux_origin, axiom, origin_of(linux) = unix).
+tff(windows_origin, axiom, origin_of(windows) = dos).
+tff(osx_origin, axiom, origin_of(osx) = unix).
+tff(runs_decl, type, runs: (operating_system * computer) > $o).
+tff(all_computers_run, axiom, ! [C: computer] : ? [OS: operating_system] : runs(OS,C)).
+tff(benefits_decl, type, benefits: (computer * origin) > $o).
+tff(benefits_axiom, axiom, ! [C: computer, OS: operating_system] : (runs(OS,C) => benefits(C, origin_of(OS)))).
+tff(my_computer_decl, type, my_computer: computer).
+tff(my_computer_osx, axiom, runs(osx, my_computer)).
+tff(my_computer_benefits_unix, conjecture, benefits(my_computer, unix)).
