@@ -1,0 +1,72 @@
+% Checking upload ... % Checker ran ... % No errors ...
+% START OF SYSTEM OUTPUT
+Running first-order model finding
+Running: /home/tptp/Systems/Vampire-SAT---5.0/vampire --mode casc --intent sat -m 16384 --cores 7 -t 60 /tmp/VjXK8lGbIa/SOT_s3s4C4
+% (574242)Running in auto input_syntax mode. Trying TPTP
+% (574242)Will run a generic schedule for satisfiability detection.
+% (574249)% WARNING: option uhcvi not known.
+% (574252)ott+31_1_sil=16000:lcm=predicate:bce=on:newcnf=on:random_seed=2554183287:i=116_1 on SOT_s3s4C4 for (1ds/116Mi)
+% (574248)fmb+10_1_sas=cadical:bce=on:rp=on:random_seed=1688907387_599 on SOT_s3s4C4 for (599ds/0Mi)
+% (574251)dis+10_1_sil=32000:sp=arity:random_seed=1211972938:i=103:fgj=on_1 on SOT_s3s4C4 for (1ds/103Mi)
+% (574250)dis+10_161_sil=256000:plsq=on:plsqr=61199697,1048576:gs=on:alpa=true:sac=on:slsq=on:cn=on:random_seed=2207062404:i=88024:add=on:rawr=on_441 on SOT_s3s4C4 for (441ds/88024Mi)
+% (574253)ott+1_1_to=lpo:sil=16000:sp=reverse_arity:erd=off:random_seed=2886996677:i=131_1 on SOT_s3s4C4 for (1ds/131Mi)
+% (574249)dis+11_61:31_drc=ordering:lsd=5:bsr=unit_only:rp=on:newcnf=on:random_seed=2748622210:i=135531:add=off:rawr=on_599 on SOT_s3s4C4 for (599ds/135531Mi)
+% (574254)ott-3_16_to=lpo:sil=16000:sp=arity:fd=off:rp=on:random_seed=2410934841:i=159:nicw=on:bs=unit_only:fsr=off:amm=off_1 on SOT_s3s4C4 for (1ds/159Mi)
+% TRYING [1]
+% TRYING [2]
+% (574252)First to succeed.
+% TRYING [3]
+% (574253)Also succeeded, but the first one will report.
+% (574250)Also succeeded, but the first one will report.
+% (574251)Also succeeded, but the first one will report.
+% (574254)Also succeeded, but the first one will report.
+% (574249)Also succeeded, but the first one will report.
+% Finite Model Found!
+% SZS status Satisfiable for SOT_s3s4C4
+% (574252)Solution written to "/tmp/tmp.PsbmhSANJl/vampire-proof-574242"
+% (574248)Also succeeded, but the first one will report.
+% SZS status Satisfiable for SOT_s3s4C4
+% SZS output start Saturation.
+cnf(u13,axiom,
+    linux != osx).
+
+cnf(u12,axiom,
+    windows != osx).
+
+cnf(u15,axiom,
+    unix != dos).
+
+cnf(u17,axiom,
+    dos = origin_of(windows)).
+
+cnf(u14,axiom,
+    linux != windows).
+
+cnf(u16,axiom,
+    unix = origin_of(linux)).
+
+cnf(u18,axiom,
+    unix = origin_of(osx)).
+
+% SZS output end Saturation.
+% SZS output start Definitions and Model Updates.
+for all inputs,
+    define runs(X0,X1) := $true
+for all inputs,
+    define benefits(X0,X1) := $true
+% SZS output end Definitions and Model Updates.
+% (574252)------------------------------
+% (574252)Version: Vampire 5.0.1 (commit 44a2ec420 on 2026-02-23 17:05:19 +0100)
+% (574252)Linked with Z3 4.14.0.0 3c47fd96cf5645d0c42b2c819d9e9a84380aa721 z3-4.8.4-9178-g3c47fd96c
+% (574252)CaDiCaL version: 2.1.3-f13d744
+% (574252)Termination reason: Satisfiable
+% (574252)Time elapsed: 0.001 s
+% (574252)Peak memory usage: 12 MB
+% (574252)------------------------------
+% (574252)------------------------------
+% (574242)Success in time 0.059 s
+% Vampire exiting
+
+% END OF SYSTEM OUTPUT
+% RESULT: SOT_s3s4C4 - Vampire-SAT---5.0 says Satisfiable - CPU = 0.01 WC = 0.09 
+% OUTPUT: SOT_s3s4C4 - Vampire-SAT---5.0 says Saturation - CPU = 0.01 WC = 0.09 

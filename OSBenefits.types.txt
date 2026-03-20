@@ -1,0 +1,9 @@
+% Checking upload ... % Checker ran ... % No errors ...
+% START OF SYSTEM OUTPUT
+% [INFO] 	 Parsing problem /tmp/5qFo7Xp0JY/SOT_uW5IX0 ... 
+% [INFO] 	 Parsing done (137ms). 
+% SZS status Success for /tmp/5qFo7Xp0JY/SOT_uW5IX0 : Type check succeeded
+
+% END OF SYSTEM OUTPUT
+% RESULT: SOT_uW5IX0 - Leo-III-STC---1.7.20 says Success - CPU = 1.96 WC = 0.94 
+% OUTPUT: SOT_uW5IX0 - Leo-III-STC---1.7.20 says Assurance - CPU = 1.96 WC = 0.94 
