@@ -1,0 +1,87 @@
+tff(decl_sort1,type,
+    operating_system: $tType ).
+
+tff(decl_sort2,type,
+    origin: $tType ).
+
+tff(decl_sort3,type,
+    computer: $tType ).
+
+tff(decl_25,type,
+    osx: operating_system ).
+
+tff(decl_26,type,
+    unix: origin ).
+
+tff(decl_28,type,
+    origin_of: operating_system > origin ).
+
+tff(decl_29,type,
+    runs: ( operating_system * computer ) > $o ).
+
+tff(decl_30,type,
+    benefits: ( computer * origin ) > $o ).
+
+tff(decl_31,type,
+    my_computer: computer ).
+
+tff(my_computer_benefits_unix,conjecture,
+    benefits(my_computer,unix),
+    file('/tmp/KFs8wqwwwh/SOT_wAxgUh',my_computer_benefits_unix) ).
+
+tff(benefits_axiom,axiom,
+    ! [X1: computer,X2: operating_system] :
+      ( runs(X2,X1)
+     => benefits(X1,origin_of(X2)) ),
+    file('/tmp/KFs8wqwwwh/SOT_wAxgUh',benefits_axiom) ).
+
+tff(osx_origin,axiom,
+    origin_of(osx) = unix,
+    file('/tmp/KFs8wqwwwh/SOT_wAxgUh',osx_origin) ).
+
+tff(my_computer_osx,axiom,
+    runs(osx,my_computer),
+    file('/tmp/KFs8wqwwwh/SOT_wAxgUh',my_computer_osx) ).
+
+tff(c_0_4,negated_conjecture,
+    ~ benefits(my_computer,unix),
+    inference(fof_simplification,[status(thm)],[inference(assume_negation,[status(cth)],[my_computer_benefits_unix])]) ).
+
+tff(c_0_5,plain,
+    ! [X3: computer,X4: operating_system] :
+      ( ~ runs(X4,X3)
+      | benefits(X3,origin_of(X4)) ),
+    inference(fof_nnf,[status(thm)],[inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[benefits_axiom])])]) ).
+
+tff(c_0_6,negated_conjecture,
+    ~ benefits(my_computer,unix),
+    inference(fof_nnf,[status(thm)],[c_0_4]) ).
+
+tcf(c_0_7,plain,
+    ! [X2: operating_system,X1: computer] :
+      ( benefits(X1,origin_of(X2))
+      | ~ runs(X2,X1) ),
+    inference(split_conjunct,[status(thm)],[c_0_5]) ).
+
+tcf(c_0_8,plain,
+    origin_of(osx) = unix,
+    inference(split_conjunct,[status(thm)],[osx_origin]) ).
+
+tcf(c_0_9,negated_conjecture,
+    ~ benefits(my_computer,unix),
+    inference(split_conjunct,[status(thm)],[c_0_6]) ).
+
+tcf(c_0_10,plain,
+    ! [X1: computer] :
+      ( benefits(X1,unix)
+      | ~ runs(osx,X1) ),
+    inference(spm,[status(thm)],[c_0_7,c_0_8]) ).
+
+tcf(c_0_11,plain,
+    runs(osx,my_computer),
+    inference(split_conjunct,[status(thm)],[my_computer_osx]) ).
+
+cnf(c_0_12,negated_conjecture,
+    $false,
+    inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_9,c_0_10]),c_0_11])]),
+    [proof] ).
